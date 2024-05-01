@@ -1,8 +1,8 @@
 #perpose is to bring the info needed from the google maps servers with api to transporter.py
 import requests
 import json
-def main():
-    def top_ten_restaurants(restaurants):
+import os
+def top_ten_restaurants(restaurants):
         top_ten = []
         for restaurant in restaurants:
             if len(top_ten) < 10:
@@ -14,6 +14,8 @@ def main():
                     top_ten.append(restaurant)
                     top_ten.sort(key=lambda x: x['rating'], reverse=True)
         return top_ten
+
+def main():
     location = '32.109333,34.855499'  # Latitude, Longitude for Tel Aviv
     query = 'restaurants in Tel Aviv yafo'
     api_key = 'AIzaSyBJuvh0nh_oMc--t6zBvAea5O4wn_TqxQQ'
@@ -24,9 +26,7 @@ def main():
     top = top_ten_restaurants(restaurants)
     for x in top:
         print(x['rating'])
-        
-
-
+    
     
 """
 # Print the name and address of each restaurant

@@ -2,27 +2,9 @@
 from google_maps_info import *
 import schedule
 import time
+import argparse
 def main():
-    restaurants = top_ten_restaurants_info()
-    print(restaurants['rating'])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print("hey")
+    print(bringer_of_doom())
 if __name__ == "__main__":
-    main()
+        main()

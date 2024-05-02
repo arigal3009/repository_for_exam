@@ -2,6 +2,13 @@
 import requests
 import json
 import os
+location = '32.109333,34.855499'  # Latitude, Longitude for Tel Aviv
+location = '32.109333,34.855499'  # Latitude, Longitude for Tel Aviv
+query = 'restaurants in Tel Aviv yafo'
+api_key = 'AIzaSyBJuvh0nh_oMc--t6zBvAea5O4wn_TqxQQ'
+url = f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={query}&location={location}&key={api_key}'
+
+
 def top_ten_restaurants(restaurants):
         top_ten = []
         for restaurant in restaurants:
@@ -15,17 +22,12 @@ def top_ten_restaurants(restaurants):
                     top_ten.sort(key=lambda x: x['rating'], reverse=True)
         return top_ten
 
-def main():
-    location = '32.109333,34.855499'  # Latitude, Longitude for Tel Aviv
-    query = 'restaurants in Tel Aviv yafo'
-    api_key = 'AIzaSyBJuvh0nh_oMc--t6zBvAea5O4wn_TqxQQ'
-    url = f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={query}&location={location}&key={api_key}'
+def bringer_of_doom():
     response = requests.get(url)
     data = response.json()
     restaurants = data['results']
     top = top_ten_restaurants(restaurants)
-    for x in top:
-        print(x['rating'])
+    return top
     
     
 """
@@ -72,6 +74,3 @@ def info_on_restaurants():
 
 
 """
-
-if __name__ == "__main__":
-    main()

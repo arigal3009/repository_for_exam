@@ -20,18 +20,21 @@ def top_ten_restaurants(restaurants):
                     top_ten.pop()
                     top_ten.append(restaurant)
                     top_ten.sort(key=lambda x: x['rating'], reverse=True)
-        print("stage 2")
-        print(top_ten)
         return top_ten
 
 def top_ten_restaurants_info():
     response = requests.get(url)
     data = response.json()
     restaurants = data['results']
-    print("stage 1")
-    print(data)
     top = top_ten_restaurants(restaurants)
-    return top
+    top_ten_table = []
+    top_ten_list = []
+    for restaurant in top:
+          top_ten_list = [restaurant['name'], restaurant['rating'],restaurant['open now']]
+          top_ten_table += top_ten_list
+    return top_ten_table  #need to export to javascript
+
+
     
     
 """

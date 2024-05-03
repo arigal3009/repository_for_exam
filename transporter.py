@@ -3,14 +3,17 @@ from google_maps_info import *
 import schedule
 import time
 import argparse
-def main():
-    top_ten = top_ten_restaurants_info()
-    top_ten_table = []
-    top_ten_list = []
-    for restaurant in top_ten:
-          top_ten_list = [restaurant['name'], restaurant['rating'],restaurant['open now']]
-          top_ten_table += top_ten_list
-    print(top_ten_table)  #need to export to presenter
+from flask import Flask, jsonify
+app = Flask(__name__)
+
+@app.route('/get_google_maps_info')
+def get_google_maps_info_endpoint():
+    data = top_ten_restaurants_info()
+    return jsonify(data)
+
+
+if __name__ == '__main__':
+    app.run()
 
 
 
@@ -19,6 +22,3 @@ def main():
 
 
 
-
-if __name__ == "__main__":
-        main()

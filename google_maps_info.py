@@ -5,7 +5,7 @@ import os
 location = '32.109333,34.855499'  # Latitude, Longitude for Tel Aviv
 location = '32.109333,34.855499'  # Latitude, Longitude for Tel Aviv
 query = 'restaurants in Tel Aviv yafo'
-api_key = 'AIzaSyBJuvh0nh_oMc--t6zBvAea5O4wn_TqxQQ'
+api_key = 'AIzaSyDOMTBBc_iW-Jbui8GJO9eUFA_PMqEG45Q'
 url = f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={query}&location={location}&key={api_key}'
 
 
@@ -20,6 +20,7 @@ def top_ten_restaurants(restaurants):
                     top_ten.pop()
                     top_ten.append(restaurant)
                     top_ten.sort(key=lambda x: x['rating'], reverse=True)
+        print(top_ten)
         return top_ten
 
 def top_ten_restaurants_info():
@@ -30,8 +31,9 @@ def top_ten_restaurants_info():
     top_ten_table = []
     top_ten_list = []
     for restaurant in top:
-          top_ten_list = [restaurant['name'], restaurant['rating'],restaurant['open now']]
+          top_ten_list = [restaurant['name'], restaurant['rating'],restaurant['opening_hours']]
           top_ten_table += top_ten_list
+    print(top_ten_table)
     return top_ten_table  #need to export to javascript
 
 

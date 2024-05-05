@@ -20,7 +20,6 @@ def top_ten_restaurants(restaurants):
                     top_ten.pop()
                     top_ten.append(restaurant)
                     top_ten.sort(key=lambda x: x['rating'], reverse=True)
-        print(top_ten)
         return top_ten
 
 def top_ten_restaurants_info():

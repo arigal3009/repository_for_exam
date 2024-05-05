@@ -3,7 +3,8 @@ from google_maps_info import *
 from flask import Flask, jsonify
 
 app = Flask(__name__)
-
+@app.route('/')
+@app.route('/index')
 @app.route('/get_google_maps_info_endpoint')
 def get_google_maps_info_endpoint():
     data = top_ten_restaurants_info()

@@ -30,8 +30,8 @@ def top_ten_restaurants_info():
     top_ten_table = []
     top_ten_list = []
     for restaurant in top:
-          top_ten_list = [restaurant['name'], restaurant['rating'],restaurant['opening_hours']]
-          top_ten_table += top_ten_list
+          top_ten_list = [restaurant['name'], restaurant['rating'],restaurant['opening_hours']['open_now']]
+          top_ten_table.append(top_ten_list)
     print(top_ten_table)
     return top_ten_table  #need to export to javascript
 

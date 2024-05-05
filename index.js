@@ -1,7 +1,7 @@
 console.log(`hey`);
 function bring_arrey_from_transporter(){
     let arr = [];
-    fetch(`http://127.0.0.1:5000/top_ten_restaurants_info`)
+    fetch(`http://127.0.0.1:5000/get_google_maps_info_endpoint`)
         .then(response => response.json())
         .then(data => {
             arr = JSON.parse(data); 

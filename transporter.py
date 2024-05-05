@@ -4,7 +4,7 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-@app.route('/top_ten_restaurants_info')
+@app.route('/get_google_maps_info_endpoint')
 def get_google_maps_info_endpoint():
     data = top_ten_restaurants_info()
     return jsonify(data)
@@ -12,11 +12,3 @@ def get_google_maps_info_endpoint():
 
 if __name__ == '__main__':
     app.run()
-
-
-
-
-
-
-
-

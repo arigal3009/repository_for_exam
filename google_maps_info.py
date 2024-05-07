@@ -40,7 +40,7 @@ def top_ten_restaurants_info():
 
 # this to check ci process
 # also part of the test
-    
+# believe it or not this is also part of the test
 """
 # Print the name and address of each restaurant
 for result in data['results']:

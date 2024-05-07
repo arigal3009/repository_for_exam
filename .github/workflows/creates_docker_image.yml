@@ -16,4 +16,4 @@ jobs:
       - uses: actions/checkout@v2 # copys the repository so it could be checked, builded...
 
       - name: Build the Docker image
-        run: docker build . -t my_first_docker_image:latest
+        run: docker build -t my_first_docker_image:latest .

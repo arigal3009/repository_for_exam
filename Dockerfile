@@ -14,5 +14,8 @@ EXPOSE 4444
 # Install the dependencies(in my case only requests)
 RUN pip install requests
 
+# Install Flask
+RUN pip install Flask
+
 # Run the Python script the_solution so program would start when we run the container
 CMD ["python", "the_solution.py"]

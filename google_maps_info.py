@@ -14,7 +14,7 @@ def top_ten_restaurants(restaurants):
         for restaurant in restaurants:
             if len(top_ten) < NUM_OF_RESTERAUNTS:
                 top_ten.append(restaurant)
-                top_ten.sort(key=lambda x: x['rating'], reverse=True)
+                top_ten.sort(key=lambda restaurant: restaurant['rating'], reverse=True) #in this action lambda takes the rating from all the objects in restaurant
             else:
                 lowest_restaurant_rating = top_ten[-1]['rating']
                 if restaurant['rating'] > lowest_restaurant_rating:
@@ -25,8 +25,8 @@ def top_ten_restaurants(restaurants):
 
 # makes the request from google maps and returns a list of the 10 best restaurants with only the data of them that is needed
 def top_ten_restaurants_info():
-    response = requests.get(url)
-    data = response.json()
+    response = requests.get(url) #gets info from api
+    data = response.json() # put the info into a json so it would be readable
     restaurants = data['results']
     top = top_ten_restaurants(restaurants)
     top_ten_table = []

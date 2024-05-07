@@ -1,16 +1,17 @@
 import time # for the sleep function
 from google_maps_info import top_ten_restaurants_info
-import requests # for catching errors made by request action(because of bad connection this error repeats itself a lot)
 from flask import Flask
 counter = 0 # so i can see if the restaurants are updated
 
 app = Flask(__name__)
 
+# returns the counter
 def modify_global():
     global counter
     counter += 1
     return counter
 
+#builds the script for the html file using the info that he gets and the counter function
 def generate_html_table(restaurants):
     modify_global()
     table_rows = ""
@@ -39,9 +40,10 @@ def generate_html_table(restaurants):
     </body>
     </html>
     """
-#unless i press ctrl c this will repeat itself forever and will recreate a html file with the needed info in it every minute
 
+#the spicific route in the local web browser that activate the index function
 @app.route('/')
+#checks if the info that is needed to create the html file is in the variables and if so it creates the html file(every time i refresh the page this function is called)
 def index():
     restaurants_info = top_ten_restaurants_info()
     if restaurants_info is None:
@@ -56,6 +58,8 @@ def index():
 
     return html_content
 
+"""
+#unless I press ctrl c this will repeat itself forever and will recreate a html file with the needed info in it every minute
 def main():
     while True:
         time.sleep(60)  # Wait for one minute before updating again
@@ -73,7 +77,7 @@ def main():
             file.write(html_content)
 
         print("HTML file 'restaurants.html' has been updated.")
-
+"""
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4444)
-    main()
+    #main()

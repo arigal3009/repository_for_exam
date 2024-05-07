@@ -4,10 +4,15 @@ import requests # for catching errors made by request action(because of bad conn
 from flask import Flask
 counter = 0 # so i can see if the restaurants are updated
 
-
 app = Flask(__name__)
 
+def modify_global():
+    global counter
+    counter += 1
+    return counter
+
 def generate_html_table(restaurants):
+    modify_global()
     table_rows = ""
     counter_line = f"<h2> number of restarts is {counter}"
     for restaurant in restaurants:
@@ -70,5 +75,5 @@ def main():
         print("HTML file 'restaurants.html' has been updated.")
 
 if __name__ == '__main__':
-    main()
     app.run(host='0.0.0.0', port=4444)
+    main()

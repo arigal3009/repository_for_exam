@@ -11,9 +11,8 @@ COPY google_maps_info.py /app/
 # Expose port 4444
 EXPOSE 4444
 
-# Install the dependencies(in my case only requests)
+# Install the dependencies
 RUN pip install requests
-
 # Install Flask
 RUN pip install Flask
 

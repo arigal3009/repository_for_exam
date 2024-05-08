@@ -1,4 +1,3 @@
-import time # for the sleep function
 from google_maps_info import top_ten_restaurants_info
 from flask import Flask
 counter = 0 # so i can see if the restaurants are updated
@@ -42,8 +41,7 @@ def generate_html_table(restaurants):
     """
 
 #the spicific route in the local web browser that activate the index function
-@app.route('/')
-#checks if the info that is needed to create the html file is in the variables and if so it creates the html file(every time i refresh the page this function is called)
+@app.route('/') #checks if the info that is needed to create the html file is in the variables and if so it creates the html file(every time i refresh the page this function is called)
 def index():
     restaurants_info = top_ten_restaurants_info()
     if restaurants_info is None:
@@ -58,26 +56,5 @@ def index():
 
     return html_content
 
-"""
-#unless I press ctrl c this will repeat itself forever and will recreate a html file with the needed info in it every minute
-def main():
-    while True:
-        time.sleep(60)  # Wait for one minute before updating again
-        restaurants_info = top_ten_restaurants_info()
-        if restaurants_info is None:
-            print("Error: Unable to retrieve restaurant information.")
-            continue
-        
-        html_content = generate_html_table(restaurants_info)
-        if html_content is None:
-            print("Error: Unable to generate HTML content.")
-            continue
-
-        with open('restaurants.html', 'w') as file:
-            file.write(html_content)
-
-        print("HTML file 'restaurants.html' has been updated.")
-"""
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4444)
-    #main()

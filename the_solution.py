@@ -23,10 +23,10 @@ def generate_html_table(restaurants):
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Top Ten Restaurants</title>
+        <title>Top Ten Restaurants!</title>
     </head>
     <body>
-        <h1>Top Ten Restaurants</h1>
+        <h1>Top Ten Restaurants!</h1>
         <table border="1">
             <tr>
                 <th>Name</th>
